@@ -8,15 +8,15 @@ services:
   sd.simpledms.ui:
     image: alexanderkozlov/simple-dms-ui:${BuildTag}
     environment:
-      - dropscanApiUrl: ${dropscanApiUrl}
-      - ElmahConnectionString: ${ElmahConnectionString}
-      - SimpleDMSConnectionString: ${SimpleDMSConnectionString}
+      - dropscanApiUrl=${dropscanApiUrl}
+      - ElmahConnectionString=${ElmahConnectionString}
+      - SimpleDMSConnectionString=${SimpleDMSConnectionString}
     depends_on:
       - "sd.dropscan.api"
   sd.simpledms.api:
     image: alexanderkozlov/simple-dms-api:${BuildTag}
     environment:
-      - ApiUrl: ${ApiUrl}
+      - ApiUrl=${ApiUrl}
     depends_on:
       - "sd.dropscan.api"
     ports: 
@@ -26,9 +26,9 @@ services:
     ports:
       - "40350:1433"
     environment:
-      - sa_password: ${sa_password}
-      - ACCEPT_EULA: Y
-      - attach_dbs: ${attach_dbs}
+      - sa_password=${sa_password}
+      - ACCEPT_EULA=Y
+      - attach_dbs=${attach_dbs}
 networks:
   default:
     external:
