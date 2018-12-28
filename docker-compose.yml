@@ -1,0 +1,32 @@
+  sd.dropscan.api:
+    image: alexanderkozlov/dropscan-mock-api
+    ports: 
+      - "40345:80"
+  sd.simpledms.ui:
+    image: alexanderkozlov/simple-dms-ui
+    environment:
+      - dropscanApiUrl: ${dropscanApiUrl}
+      - ElmahConnectionString: ${ElmahConnectionString}
+      - SimpleDMSConnectionString: ${SimpleDMSConnectionString}
+    depends_on:
+      - "sd.dropscan.api"
+  sd.simpledms.api:
+    image: alexanderkozlov/simple-dms-api
+    environment:
+      - ApiUrl: ${ApiUrl}
+    depends_on:
+      - "sd.dropscan.api"
+    ports: 
+      - "40346:80"
+  simple.dms.db:
+    image: microsoft/mssql-server-windows-developer
+    ports:
+      - "40350:1433"
+    environment:
+      - sa_password: ${sa_password}
+      - ACCEPT_EULA: Y
+      - attach_dbs: ${attach_dbs}
+networks:
+  default:
+    external:
+      name: nat
