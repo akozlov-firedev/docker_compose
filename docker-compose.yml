@@ -1,9 +1,12 @@
+version: '3.4'
+
+services:
   sd.dropscan.api:
-    image: alexanderkozlov/dropscan-mock-api
+    image: alexanderkozlov/dropscan-mock-api:${BuildTag}
     ports: 
       - "40345:80"
   sd.simpledms.ui:
-    image: alexanderkozlov/simple-dms-ui
+    image: alexanderkozlov/simple-dms-ui:${BuildTag}
     environment:
       - dropscanApiUrl: ${dropscanApiUrl}
       - ElmahConnectionString: ${ElmahConnectionString}
@@ -11,7 +14,7 @@
     depends_on:
       - "sd.dropscan.api"
   sd.simpledms.api:
-    image: alexanderkozlov/simple-dms-api
+    image: alexanderkozlov/simple-dms-api:${BuildTag}
     environment:
       - ApiUrl: ${ApiUrl}
     depends_on:
