@@ -33,9 +33,7 @@ services:
       - ACCEPT_EULA=Y
       - attach_dbs=${attach_dbs}
     volumes:
-      - type: volume
-        source: C:\Octopus\Work\databases
-        target: C:\simple-dms-db
+      - "C:\simple-dms-db:C:\simple-dms-db"
 networks:
   default:
     external:
