@@ -35,7 +35,7 @@ services:
     volumes:
       - type: bind
         source: C:\Octopus\Work\databases
-        target: C:\Octopus\Work\databases
+        target: C:\simple-dms-db
         bind:
           propagation: cached
 networks:
