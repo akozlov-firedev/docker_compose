@@ -14,6 +14,5 @@ if ($simpledmsDbContainerId = docker ps -q -f name=simple.dms.db.container-*) {
   docker rm -f $simpledmsDbContainerId 
 }
 
-. docker-compose down --rmi all -v
 . docker-compose up -d
 EXIT 0
