@@ -32,6 +32,12 @@ services:
       - sa_password=${sa_password}
       - ACCEPT_EULA=Y
       - attach_dbs=${attach_dbs}
+    volumes:
+      - type: bind
+        source: C:\simple-dms-db
+        target: C:\simple-dms-db
+        bind:
+          propagation: cached
 networks:
   default:
     external:
