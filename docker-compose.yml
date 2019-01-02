@@ -34,8 +34,8 @@ services:
       - attach_dbs=${attach_dbs}
     volumes:
       - type: bind
-        source: C:\simple-dms-db
-        target: C:\simple-dms-db
+        source: C:\Octopus\Work\databases
+        target: C:\Octopus\Work\databases
         bind:
           propagation: cached
 networks:
