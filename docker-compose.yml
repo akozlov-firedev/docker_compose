@@ -11,7 +11,7 @@ services:
     image: alexanderkozlov/simple-dms-ui:${BuildTag}
     ports: 
       - "40347:80"
-    command: powershell -executionpolicy bypass "C:\scripts\ReplaceHashParamsWithEnvVariables.ps1 -FilePath 'C:\inetpub\wwwroot\main*.js'"
+    command: powershell-executionpolicy bypass "C:\scripts\ReplaceHashParamsWithEnvVariables.ps1 -FilePath 'C:\inetpub\wwwroot\main*.js'"; .\ServiceMonitor.exe w3svc;
     environment:
       - ApiUrl=${ApiUrl}
       - WhitelistedDomains=${WhitelistedDomains}
