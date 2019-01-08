@@ -11,7 +11,10 @@ services:
     image: alexanderkozlov/simple-dms-ui:${BuildTag}
     ports: 
       - "40347:80"
-    entrypoint: .\ReplaceHashParamsWithEnvVariables.ps1 -FilePath "C:\inetpub\wwwroot\main*.js"
+    entrypoint: ReplaceHashParamsWithEnvVariables.ps1 -FilePath "C:\inetpub\wwwroot\main*.js"
+    environment:
+      - ApiUrl=${ApiUrl}
+      - WhitelistedDomains=${WhitelistedDomains}
   sd.simpledms.api:
     container_name: sd.simpledms.api.container-${BuildTag}
     image: alexanderkozlov/simple-dms-api:${BuildTag}
