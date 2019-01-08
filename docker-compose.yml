@@ -14,8 +14,7 @@ services:
     environment:
       - ApiUrl=${ApiUrl}
       - WhitelistedDomains=${WhitelistedDomains}
-    entrypoint: powershell -executionpolicy bypass "C:\scripts\ReplaceHashParamsWithEnvVariables.ps1 -FilePath 'C:\inetpub\wwwroot\main*.js'"
-    command: C:\ServiceMonitor.exe 'w3svc'
+    entrypoint: powershell -executionpolicy bypass "C:\scripts\ReplaceHashParamsWithEnvVariables.ps1 -FilePath 'C:\inetpub\wwwroot\main*.js'; C:\ServiceMonitor.exe w3svc"
   sd.simpledms.api:
     container_name: sd.simpledms.api.container-${BuildTag}
     image: alexanderkozlov/simple-dms-api:${BuildTag}
