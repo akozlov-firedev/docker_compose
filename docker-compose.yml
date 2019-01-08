@@ -11,7 +11,7 @@ services:
     image: alexanderkozlov/simple-dms-ui:${BuildTag}
     ports: 
       - "40347:80"
-    entrypoint: ReplaceHashParamsWithEnvVariables.ps1 -FilePath "C:\inetpub\wwwroot\main*.js"
+    command: powershell -executionpolicy bypass ".\ReplaceHashParamsWithEnvVariables.ps1 -FilePath 'environment.production.ts'"
     environment:
       - ApiUrl=${ApiUrl}
       - WhitelistedDomains=${WhitelistedDomains}
