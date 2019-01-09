@@ -9,7 +9,7 @@ To start reversed proxy do the following:
 5. Run "docker run -d -p 80:80 -p 443:443 --name <container_name> <image_name>".
 6. Run "docker ps".
 7. Run "docker exec -it <container_id> bash" to start bash on reverse proxy server.
-8. Run "certbot --nginx --register-unsafely-without-email --agree-tos --redirect --staging -d <domain_name>"
+8. Run "certbot --nginx --non-interactive --register-unsafely-without-email --agree-tos --redirect -d <domain_name>"
 For example:
 "certbot --nginx --register-unsafely-without-email --agree-tos --redirect --staging -d simple-dms.test.sovarto.com -d api.simple-dms.test.sovarto.com"
 9. Run "certbot renew --dry-run" to set up certificates auto renewal
