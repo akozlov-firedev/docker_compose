@@ -16,3 +16,5 @@ For example:
 
 Reverse proxy should be up and running.
 
+Octopus changes environment variables inside .env file.
+.env file is used by docker-compose.yml file.
