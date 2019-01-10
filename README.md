@@ -6,7 +6,8 @@ To start reversed proxy do the following:
 2. Copy reversed_proxy folder somewhere on Windows server.
 3. Open PowerShell/cmd and change location to copied folder.
 4. Run "docker build -t <image_name> ."
-5. Run "docker run -d -p 80:80 -p 443:443 --name <container_name> <image_name>".
+5. Stop iis or other apps on ports 80, 443.
+   Run "docker run -d -p 80:80 -p 443:443 --name <container_name> <image_name>".
 6. Run "docker ps".
 7. Run "docker exec -it <container_id> bash" to start bash on reverse proxy server.
 8. Run "certbot --nginx --non-interactive --register-unsafely-without-email --agree-tos --redirect -d <domain_name>"
