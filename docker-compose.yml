@@ -4,13 +4,11 @@ services:
   sd.dropscan.api:
     container_name: sd.dropscan.api.container-${BuildTag}
     image: alexanderkozlov/dropscan-mock-api:${BuildTag}
-    restart: always
     ports: 
       - "40345:80"
   sd.simpledms.ui:
     container_name: sd.simpledms.ui.container-${BuildTag}
     image: alexanderkozlov/simple-dms-ui:${BuildTag}
-    restart: always
     ports: 
       - "40347:80"
     environment:
@@ -20,7 +18,6 @@ services:
   sd.simpledms.api:
     container_name: sd.simpledms.api.container-${BuildTag}
     image: alexanderkozlov/simple-dms-api:${BuildTag}
-    restart: always
     environment:
       - dropscanApiUrl=${dropscanApiUrl}
       - ElmahConnectionString=${ElmahConnectionString}
@@ -33,7 +30,6 @@ services:
   simple.dms.db:
     container_name: simple.dms.db.container-${BuildTag}
     image: microsoft/mssql-server-windows-developer
-    restart: always
     ports:
       - "40350:1433"
     environment:
