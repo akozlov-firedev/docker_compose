@@ -36,3 +36,6 @@ https://superuser.com/questions/352017/pid4-using-port-80
 Error response from daemon: driver failed programming external connectivity on endpoint 
 Bind for 0.0.0.0:443 failed: port is already allocated
 vpnkit
+
+ ERROR: Failed to start or query status of service 'w3svc' error [80004005]
+ https://superuser.com/questions/352017/pid4-using-port-80 - enable World Wide Publishing service again - windows containers will start.
